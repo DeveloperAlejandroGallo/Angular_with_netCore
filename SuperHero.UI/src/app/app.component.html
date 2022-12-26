@@ -1,21 +1,25 @@
-<button (click)="initNewHero()">Crear Heroe</button>
 
-<table>
-    <thead>
-        <th>Name</th>
-        <th>Firts Name</th>
-        <th>Last Name</th>
-        <th>Place</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let hero of heroes">
-            <td>{{hero.name}}</td>
-            <td>{{hero.firstName}}</td>
-            <td>{{hero.lastName}}</td>
-            <td>{{hero.place}}</td>
-            <td><button (click)="editHero(hero)">Editar</button></td>
-        </tr>
-    </tbody>
-</table>
+<div class="container  center bg-dark text-white">
+    <legend>Super Heroes App</legend>
+    <button (click)="initNewHero()" class="btn btn-outline-primary">Crear Heroe</button>
 
-<app-edit-hero [hero]="heroToEdit" (heroesUpdated)="updateHeroList($event)"></app-edit-hero>
+    <table class="table table-dark table-striped">
+        <thead>
+            <th scope="col">Name</th>
+            <th scope="col">Firts Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Place</th>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let hero of heroes">
+                <td>{{hero.name}}</td>
+                <td>{{hero.firstName}}</td>
+                <td>{{hero.lastName}}</td>
+                <td>{{hero.place}}</td>
+                <td><button (click)="editHero(hero)" class="btn btn-outline-warning">Editar</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <app-edit-hero [hero]="heroToEdit" (heroesUpdated)="updateHeroList($event)"></app-edit-hero>
+</div>
